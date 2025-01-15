@@ -3,8 +3,10 @@ import { Container, Row } from 'react-bootstrap'
 import CardC from '../components/CardC'
 import clientAxios, { configHeader } from '../helpers/clientAxios'
 import Swal from 'sweetalert2'
+import { useChangeTitlePage } from '../helpers/changeTitlePage'
 
 const OrderPage = () => {
+  useChangeTitlePage('order')
   const [orders, setOrders] = useState([])
 
   const getOrders = async () => {

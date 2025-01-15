@@ -4,8 +4,10 @@ import { useEffect, useState } from "react"
 import clientAxios, { configHeader } from "../helpers/clientAxios"
 import ChatBot from "./ChatBot"
 import Swal from "sweetalert2"
+import { useChangeTitlePage } from "../helpers/changeTitlePage"
 
 const UserMenuPage = () => {
+  useChangeTitlePage('user')
   const [menu, setMenu] = useState([])
 
   const getMenu = async () => {

@@ -4,8 +4,10 @@ import Form from 'react-bootstrap/Form';
 import clientAxios, { configHeader } from '../helpers/clientAxios';
 import { Button, Container } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import { useChangeTitlePage } from '../helpers/changeTitlePage';
 
 const AdminOrdersPage = () => {
+  useChangeTitlePage('adminOrders')
   const [orders, setOrders] = useState([]);
   const [editingOrderId, setEditingOrderId] = useState(null);
 

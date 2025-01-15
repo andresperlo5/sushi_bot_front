@@ -3,8 +3,10 @@ import Table from 'react-bootstrap/Table';
 import clientAxios, { configHeader } from '../helpers/clientAxios';
 import { Container } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import { useChangeTitlePage } from '../helpers/changeTitlePage';
 
 const AdminUsersPage = () => {
+  useChangeTitlePage('adminUsers')
   const [users, setUsers] = useState([])
   const idUser = JSON.parse(sessionStorage.getItem('idUser'))
 

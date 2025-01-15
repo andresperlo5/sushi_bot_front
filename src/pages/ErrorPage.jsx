@@ -1,6 +1,9 @@
+import { useChangeTitlePage } from "../helpers/changeTitlePage"
+
 const ErrorPage = () => {
+  useChangeTitlePage('error')
   return (
-    <div>Nose encontro lo que buscas :(</div>
+    <img src="https://res.cloudinary.com/codefusiontech/image/upload/v1582791158/general/404Hero.png" alt="" className="img-fluid" />
   )
 }
 

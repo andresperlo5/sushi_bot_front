@@ -4,8 +4,10 @@ import Table from 'react-bootstrap/Table';
 import clientAxios, { configHeader } from '../helpers/clientAxios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { useChangeTitlePage } from '../helpers/changeTitlePage';
 
 const CartPage = () => {
+  useChangeTitlePage('cart')
   const navigate = useNavigate()
   const [cart, setCart] = useState([]);
   const [editingProductId, setEditingProductId] = useState(null);

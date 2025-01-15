@@ -4,6 +4,7 @@ import '../css/CardC.css'
 import clientAxios, { configHeader } from '../helpers/clientAxios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const CardC = ({ idPage, idProduct, image, title, price, description, status, status_payment, payment_method }) => {
@@ -72,11 +73,11 @@ const CardC = ({ idPage, idProduct, image, title, price, description, status, st
         <div className='text-center'>
           {
             status !== 'cancelado' &&
-            < a href={idPage === 'orders' ? '#' : `/user/product/${idProduct}`} className='btn-nular' type="submit" onClick={idPage === 'orders' ? handleClickCancelOrder : undefined} >
+            < Link to={idPage === 'orders' ? '#' : `/user/product/${idProduct}`} className='btn-nular' type="submit" onClick={idPage === 'orders' ? handleClickCancelOrder : undefined} >
               {
                 idPage === 'orders' ? 'Cancelar' : ' Ver Mas...'
               }
-            </a>
+            </Link>
           }
           {
             idPage === 'orders' && status === 'cancelado' &&

@@ -16,7 +16,7 @@ const PrivateRoute = ({ children, rol }) => {
       }
     }
   } else {
-    location.href = '/'
+    navigate('/')
   }
 
 }

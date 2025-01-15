@@ -3,8 +3,10 @@ import { useNavigate, useParams } from "react-router-dom"
 import clientAxios, { configHeader } from "../helpers/clientAxios"
 import { Col, Container, Row } from "react-bootstrap"
 import Swal from "sweetalert2"
+import { useChangeTitlePage } from "../helpers/changeTitlePage"
 
 const ProductPage = () => {
+  useChangeTitlePage('productDetail')
   const params = useParams()
   const navigate = useNavigate()
   const [productMenu, setProductMenu] = useState({})
