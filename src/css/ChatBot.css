@@ -1,0 +1,148 @@
+.bot img{
+  width: 200px;
+}
+
+.bg-nular{
+  background-color: #F4EEF3 !important;
+  border: none !important;
+  border-radius: 0px !important;
+}
+
+.select-form-bot option{
+  background-color: #ddd;
+}
+
+.chat-box {
+  position: fixed;
+  bottom: 160px;
+  right: 140px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.chat-header {
+  background-color: #e28ed4;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header .close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.chat-body {
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.chat-footer {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.chat-footer button {
+  padding: 5px 10px;
+  background-color: #fddef8;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chat-footer button:hover {
+  background-color: #fbd0f4;
+}
+
+.chat-message-user {
+  background-color: rgb(122, 219, 122);
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  max-width: 60%;
+  text-align: left;
+  margin: 10px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.chat-message-bot {
+  background-color: rgb(75, 75, 170);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  max-width: 60%;
+  text-align: start;
+  margin: 5px 0 5px auto;
+  box-shadow: -3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown-scroll {
+  max-height: 200px;
+  overflow-y: auto;  
+  border: 1px solid #ddd;
+}
+
+.dropdown-scroll .dropdown-item:active{
+  background-color: #fddef8;
+}
+
+.typing-indicator span {
+  display: inline-block;
+  margin-right: 3px;
+  font-size: 18px;
+  animation: blink 1.5s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@media(max-width: 500px){
+  .chat-box {
+    bottom: 135px;
+    right: 50px;
+  }
+  .bot img{
+    width: 150px;
+  }
+}

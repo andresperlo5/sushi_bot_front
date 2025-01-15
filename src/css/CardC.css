@@ -1,0 +1,99 @@
+.card-component-style img{
+  height: 200px;
+  object-fit: cover;
+
+}
+
+
+
+.btn-nular{
+  text-decoration: none;
+  text-align: center;
+  color:black;
+  width: 50%;
+  background-color: #fddef8;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.btn-nular:hover{
+  background-color:  #fbd0f4;
+}
+
+.state-circule-pending{
+  background-color: rgb(240, 240, 9);
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+}
+
+.state-circule-start-order{
+  background-color: orange; 
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+}
+
+.state-circule-order-sent{
+  background-color: rgb(226, 138, 153); 
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+}
+
+
+.state-circule-order-delivered{
+  background-color: rgb(74, 169, 74) ; 
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+}
+
+
+.state-circule-cancel{
+  background-color: rgb(83, 80, 80);
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+}
+
+
+.state-circule-rejected {
+  background-color: red ; 
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+}
+
+.pay-method-cash{
+  background-color: blue ; 
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+}
+
+.pay-method-card{
+  background-color:  rgb(74, 169, 74) ; 
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+}
+
+.btn-nular-disabled{
+  width: 50%;
+  background-color:  grey;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+

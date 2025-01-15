@@ -1,0 +1,27 @@
+.btn-nular{
+  width: 50%;
+  background-color:  #fddef8;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.btn-nular:hover{
+  background-color:  #fbd0f4;
+}
+
+.input-nular{
+  border: 1px solid #f24fd7;
+  border-radius: 20px;
+  width: 10%;
+  padding: 5px;
+  text-align: center;
+  margin-left: 25px;
+}
+
+@media(max-width: 500px){
+  .btn-nular{
+    width: 100%;
+  }
+  
+}
