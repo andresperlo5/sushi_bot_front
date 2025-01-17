@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap"
 import CardC from "../components/CardC"
 import { useEffect, useState } from "react"
-import clientAxios, { configHeader } from "../helpers/clientAxios"
+import clientAxios from "../helpers/clientAxios"
 import ChatBot from "./ChatBot"
 import Swal from "sweetalert2"
 import { useChangeTitlePage } from "../helpers/changeTitlePage"
@@ -12,7 +12,7 @@ const UserMenuPage = () => {
 
   const getMenu = async () => {
     try {
-      const res = await clientAxios.get('/menus', configHeader)
+      const res = await clientAxios.get('/menus')
       setMenu(res.data.menu)
     } catch (error) {
       Swal.fire({

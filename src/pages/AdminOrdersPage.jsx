@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
-import clientAxios, { configHeader } from '../helpers/clientAxios';
+import clientAxios from '../helpers/clientAxios';
 import { Button, Container } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import { useChangeTitlePage } from '../helpers/changeTitlePage';
@@ -13,7 +13,7 @@ const AdminOrdersPage = () => {
 
   const getOrders = async () => {
     try {
-      const res = await clientAxios.get('/orders', configHeader);
+      const res = await clientAxios.get('/orders');
       setOrders(res.data.allOrders);
     } catch (error) {
       Swal.fire({
@@ -35,7 +35,7 @@ const AdminOrdersPage = () => {
         confirmButtonText: "Si, estoy seguro!"
       }).then(async (result) => {
         if (result.isConfirmed) {
-          const res = await clientAxios.put(`/orders/state/${idOrder}`, { status: 'cancelado' }, configHeader);
+          const res = await clientAxios.put(`/orders/state/${idOrder}`, { status: 'cancelado' });
           getOrders();
           Swal.fire({
             title: "Pedido cancelado!",
@@ -59,7 +59,7 @@ const AdminOrdersPage = () => {
   const handleSelectChange = async (event, idOrder) => {
     try {
       const newStatus = event.target.value;
-      const res = await clientAxios.put(`/orders/state/${idOrder}`, { status: newStatus }, configHeader)
+      const res = await clientAxios.put(`/orders/state/${idOrder}`, { status: newStatus })
       getOrders()
       setEditingOrderId(null)
       if (res.status === 200) {
@@ -84,7 +84,7 @@ const AdminOrdersPage = () => {
 
   return (
     <Container className='mt-5'>
-      <Table striped bordered hover>
+      <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>#</th>

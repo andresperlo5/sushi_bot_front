@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import clientAxios, { configHeader } from "../helpers/clientAxios"
+import clientAxios from "../helpers/clientAxios"
 import { Col, Container, Row } from "react-bootstrap"
 import Swal from "sweetalert2"
 import { useChangeTitlePage } from "../helpers/changeTitlePage"
@@ -15,7 +15,7 @@ const ProductPage = () => {
 
   const getProductMenu = async () => {
     try {
-      const res = await clientAxios.get(`/menus/${params.idProduct}`, configHeader)
+      const res = await clientAxios.get(`/menus/${params.idProduct}`)
       setProductMenu(res.data.menuItem)
     } catch (error) {
       Swal.fire({
@@ -30,7 +30,7 @@ const ProductPage = () => {
     try {
       const res = await clientAxios.post(`/carts/${params.idProduct}`, {
         quantity
-      }, configHeader)
+      })
 
       if (res.status === 200) {
         Swal.fire({
@@ -57,7 +57,7 @@ const ProductPage = () => {
   return (
     <>
       <Container style={{ minHeight: '60vh' }}>
-        <Row className="align-items-center justify-content-center">
+        <Row className="align-items-center justify-content-center flex-column flex-md-row">
           <Col className="py-5 text-end">
             <img src={productMenu.imageUrl} alt="" width={'60%'} />
           </Col>

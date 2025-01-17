@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
-import clientAxios, { configHeader } from '../helpers/clientAxios';
+import clientAxios from '../helpers/clientAxios';
 import { Container } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import { useChangeTitlePage } from '../helpers/changeTitlePage';
@@ -12,7 +12,7 @@ const AdminUsersPage = () => {
 
   const getUsers = async () => {
     try {
-      const res = await clientAxios.get('/users', configHeader)
+      const res = await clientAxios.get('/users')
       setUsers(res.data.allUsers)
     } catch (error) {
       Swal.fire({
@@ -28,7 +28,7 @@ const AdminUsersPage = () => {
   }, [])
   return (
     <Container className='mt-5'>
-      <Table striped bordered hover>
+      <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>#</th>

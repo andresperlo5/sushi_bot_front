@@ -1,7 +1,7 @@
 
 import Card from 'react-bootstrap/Card';
 import '../css/CardC.css'
-import clientAxios, { configHeader } from '../helpers/clientAxios';
+import clientAxios from '../helpers/clientAxios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ const CardC = ({ idPage, idProduct, image, title, price, description, status, st
 
   const handleClickCancelOrder = async () => {
     try {
-      const res = await clientAxios.put(`/orders/state/${idProduct}`, { status: 'cancelado' }, configHeader)
+      const res = await clientAxios.put(`/orders/state/${idProduct}`, { status: 'cancelado' })
       if (res.status === 200) {
         Swal.fire({
           title: "Cancelado",
@@ -35,7 +35,7 @@ const CardC = ({ idPage, idProduct, image, title, price, description, status, st
 
 
   return (
-    <Card className='card-component-style mt-5 mx-2'>
+    <Card className='card-component-style mt-5 mx-md-2'>
       <Card.Img variant="top" src={image} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Container, Row } from 'react-bootstrap'
 import CardC from '../components/CardC'
-import clientAxios, { configHeader } from '../helpers/clientAxios'
+import clientAxios from '../helpers/clientAxios'
 import Swal from 'sweetalert2'
 import { useChangeTitlePage } from '../helpers/changeTitlePage'
 
@@ -11,7 +11,7 @@ const OrderPage = () => {
 
   const getOrders = async () => {
     try {
-      const res = await clientAxios.get('/orders', configHeader)
+      const res = await clientAxios.get('/orders')
       setOrders(res.data.allOrders)
     } catch (error) {
       Swal.fire({

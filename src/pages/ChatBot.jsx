@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import clientAxios, { configHeader } from "../helpers/clientAxios";
+import clientAxios from "../helpers/clientAxios";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import "../css/ChatBot.css";
@@ -15,7 +15,7 @@ const ChatBot = () => {
 
   const getFaqs = async () => {
     try {
-      const res = await clientAxios.get('/faqs', configHeader)
+      const res = await clientAxios.get('/faqs')
       setFaqs(res.data.allQuestions)
     } catch (error) {
       Swal.fire({
@@ -34,11 +34,13 @@ const ChatBot = () => {
     setIsTyping(true);
 
     try {
+      let config = {}
 
-      const config = {
-        ...configHeader,
-        responseType: "blob"
-      };
+      if (inputMessage.toLowerCase() === 'menu') {
+        config = {
+          responseType: "blob"
+        };
+      }
 
       const res = await clientAxios.post("/faqs/searchAnswer", { question: inputMessage }, config);
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
-import clientAxios, { configHeader } from '../helpers/clientAxios';
+import clientAxios from '../helpers/clientAxios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useChangeTitlePage } from '../helpers/changeTitlePage';
@@ -14,7 +14,7 @@ const CartPage = () => {
 
   const getCart = async () => {
     try {
-      const res = await clientAxios.get('/carts', configHeader);
+      const res = await clientAxios.get('/carts');
       setCart(res.data.cart);
     } catch (error) {
       Swal.fire({
@@ -33,8 +33,7 @@ const CartPage = () => {
     try {
       await clientAxios.put(
         `/carts/quantity/${idProduct}`,
-        { quantity: newQuantity },
-        configHeader
+        { quantity: newQuantity }
       );
 
       setCart((prevCart) =>
@@ -81,7 +80,7 @@ const CartPage = () => {
         confirmButtonText: "Si, estoy seguro!"
       }).then(async (result) => {
         if (result.isConfirmed) {
-          const res = await clientAxios.delete(`/carts/${idProduct}`, configHeader)
+          const res = await clientAxios.delete(`/carts/${idProduct}`)
           getCart()
 
           Swal.fire({
@@ -113,10 +112,10 @@ const CartPage = () => {
         }
         newCartItemsBack.push(obj)
       })
-      const res = await clientAxios.post('/orders', { cart: newCartItemsBack }, configHeader)
+      const res = await clientAxios.post('/orders', { cart: newCartItemsBack })
 
       if (res.status === 200) {
-        const res = await clientAxios.delete(`/carts/alls/products`, configHeader)
+        const res = await clientAxios.delete(`/carts/alls/products`)
 
         if (res.status === 200) {
           Swal.fire({
@@ -151,7 +150,7 @@ const CartPage = () => {
         cart.length
           ?
           <>
-            <Table striped bordered hover>
+            <Table striped bordered hover responsive>
               <thead>
                 <tr>
                   <th>#</th>
